@@ -34,6 +34,12 @@ export class Marker extends React.Component {
     this.renderMarker();
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.icon.url !== this.props.icon.url) return true;
+
+    return false;
+  }
+
   componentDidUpdate(prevProps) {
     if ((this.props.map !== prevProps.map) ||
       (this.props.position !== prevProps.position) ||
