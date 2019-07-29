@@ -133,6 +133,13 @@
         this.renderMarker();
       }
     }, {
+      key: 'shouldComponentUpdate',
+      value: function shouldComponentUpdate(nextProps) {
+        if (nextProps.icon.url !== this.props.icon.url) return true;
+
+        return false;
+      }
+    }, {
       key: 'componentDidUpdate',
       value: function componentDidUpdate(prevProps) {
         if (this.props.map !== prevProps.map || this.props.position !== prevProps.position || this.props.icon !== prevProps.icon) {
